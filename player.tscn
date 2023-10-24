@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://0c8id4nsm8hd"]
+
+[ext_resource type="Texture2D" uid="uid://cwlkhbaq35aie" path="res://playerGrey_up1.png" id="1_j0kvc"]
+[ext_resource type="Script" path="res://Player.gd" id="2_t0c86"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4lg4j"]
+radius = 53.3333
+height = 140.0
+
+[node name="Player" type="Sprite2D"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_j0kvc")
+script = ExtResource("2_t0c86")
+
+[node name="Reload_speed" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Hitbox" type="Area2D" parent="." groups=["Pick_up"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CapsuleShape2D_4lg4j")
+
+[connection signal="timeout" from="Reload_speed" to="." method="_on_reload_speed_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
