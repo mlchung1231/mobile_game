@@ -1,9 +1,10 @@
 extends Node
 
 var node_creation_parent = null
+
+var player_number = 2
 var player = [null,null,null,null,null,null,null,null]
-var player1 = null
-var player2 = null
+
 
 
 var daytime = 1

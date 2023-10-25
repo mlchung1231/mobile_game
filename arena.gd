@@ -3,12 +3,14 @@ extends Node2D
 var enemy_1 = preload("res://enemy.tscn")
 var item_gun_1 = preload("res://item_gun.tscn")
 
+var time_sec = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.node_creation_parent = self
 
 
-func _exit_tree():
+func _exit_stree():
 	Global.node_creation_parent = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,12 +45,31 @@ func random_point_inside_unit_circle():
 func _on_world_enemy_spawn_timer_timeout():
 	var enemy_position = Vector2(randf_range(0,640),randf_range(0,360))
 	
-	while enemy_position.distance_to(Global.player[0].global_position)<Global.enemy_born_max_dis:
+	while nearest_player_in_distance(enemy_position, Global.enemy_born_max_dis) != null:
 		enemy_position = Vector2(randf_range(0,640),randf_range(0,360))
 		
 	Global.instance_node(enemy_1, enemy_position, self)
 
+func nearest_player_in_distance(enemy_position, distance):
+	var nearest_distance
+	var nearest_player = 0
+	nearest_distance = enemy_position.distance_to(Global.player[0].global_position)
+	for i in range(Global.player_number):
+		if enemy_position.distance_to(Global.player[i].global_position) < nearest_distance:
+			nearest_distance = enemy_position.distance_to(Global.player[i].global_position)
+			nearest_player = i
+			
+	if nearest_distance > distance:
+		return null
+	else:
+		return nearest_player
 
 func _on_world_day_timer_timeout():
-	Global.daytime += 1
+	time_sec += 1
+	if time_sec > 20:
+		Global.daytime += 1
+		time_sec = 1
+	update_time(time_sec)
 	
+func update_time(time_sec):
+	$World_day_timer/Daytimer.text = str(time_sec)

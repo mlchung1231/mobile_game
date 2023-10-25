@@ -56,14 +56,15 @@ func _on_stun_timer_timeout():
 
 
 func _on_turn_timer_timeout():
-	if face == 0:
-		turn = Vector2(1,0)
-	elif face == 1:
-		turn = Vector2(0,1)
-	elif face == 2:
-		turn = Vector2(-1,0)
-	elif face == 3:
-		turn = Vector2(0,-1)
+	match face:
+		0:
+			turn = Vector2(1,0)
+		1:
+			turn = Vector2(0,1)
+		2:
+			turn = Vector2(-1,0)
+		3:
+			turn = Vector2(0,-1)
 	face += 1
 	if face >= 4:
 		face = 0

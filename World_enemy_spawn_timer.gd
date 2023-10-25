@@ -13,6 +13,6 @@ func _process(delta):
 
 func _change_wait_time():
 	if Global.daytime % 2 == 1:
-		self.wait_time = 5.0
+		self.wait_time = 5
 	else:
 		self.wait_time = enemy_born_time[Global.daytime/2]
