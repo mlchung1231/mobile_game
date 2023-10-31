@@ -11,8 +11,12 @@ func _ready():
 func _process(delta):
 	_change_wait_time()
 
+# 世界怪物生成頻率
 func _change_wait_time():
+	# 白天
 	if Global.daytime % 2 == 1:
 		self.wait_time = 5
+		
+	# 夜晚
 	else:
 		self.wait_time = enemy_born_time[Global.daytime/2]

@@ -5,19 +5,19 @@ var node_creation_parent = null
 var player_number = 2
 var player = [null,null,null,null,null,null,null,null]
 
-
-
 var daytime = 1
 
 var enemy_born_max_dis = 120
 var enemy_born_min_dis = 50
 
+# 新增節點(子彈，怪物，牆體等)
 func instance_node(node, location, parent):
 	var node_instance = node.instantiate()
 	parent.add_child(node_instance)
 	node_instance.global_position = location
 	return node_instance
 	
+# 指定範圍內最近的玩家
 func nearest_player_in_distance(enemy_position, distance):
 	var nearest_distance
 	var nearest_player
