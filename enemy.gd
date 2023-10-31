@@ -4,14 +4,13 @@ var speed = 50
 
 var velocity = Vector2()
 
-var start_position 
-var end_position 
-
 var face = 0
 var turn = Vector2(1,0)
 
 var stun = false
 var hp = 3
+
+var nearest_player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,11 +24,17 @@ func _process(delta):
 	
 	velocity = turn
 	
-	if Global.player[0] != null and stun == false:
-		if global_position.distance_to(Global.player[0].global_position)<Global.enemy_born_max_dis or Global.daytime % 2 == 0:
-			velocity = global_position.direction_to(Global.player[0].global_position)
+	if stun == false:
+		if Global.daytime % 2 == 0:
+			nearest_player = Global.nearest_player_in_distance(global_position, 600)
+			velocity = global_position.direction_to(nearest_player.global_position)
+		else:
+			nearest_player = Global.nearest_player_in_distance(global_position, Global.enemy_born_max_dis)
+			if nearest_player != null:
+				velocity = global_position.direction_to(nearest_player.global_position)
 	elif stun:
 		velocity = lerp(velocity, Vector2(0,0), 0.3)
+	
 	
 	global_position += velocity * speed * delta
 	

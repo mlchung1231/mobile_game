@@ -20,12 +20,15 @@ func _process(delta):
 
 
 func _on_enemy_spawn_timer_timeout():
-	var enemy_position = random_point_inside_unit_circle()*Global.enemy_born_max_dis + Global.player[0].global_position
 	
-	while enemy_position.distance_to(Global.player[0].global_position)<Global.enemy_born_min_dis:
-		enemy_position = random_point_inside_unit_circle()*Global.enemy_born_max_dis + Global.player[0].global_position
+	for i in range(Global.player_number):
+		var enemy_position = random_point_inside_unit_circle()*Global.enemy_born_max_dis + Global.player[i].global_position
+		var nearest_player = Global.nearest_player_in_distance(enemy_position, Global.enemy_born_max_dis)
 		
-	Global.instance_node(enemy_1, enemy_position, self)
+		while enemy_position.distance_to(nearest_player.global_position)<Global.enemy_born_min_dis:
+			enemy_position = random_point_inside_unit_circle()*Global.enemy_born_max_dis + Global.player[i].global_position
+			
+		Global.instance_node(enemy_1, enemy_position, self)
 
 
 func _on_item_gun_timer_timeout():
@@ -45,24 +48,11 @@ func random_point_inside_unit_circle():
 func _on_world_enemy_spawn_timer_timeout():
 	var enemy_position = Vector2(randf_range(0,640),randf_range(0,360))
 	
-	while nearest_player_in_distance(enemy_position, Global.enemy_born_max_dis) != null:
+	while Global.nearest_player_in_distance(enemy_position, Global.enemy_born_max_dis) != null:
 		enemy_position = Vector2(randf_range(0,640),randf_range(0,360))
 		
 	Global.instance_node(enemy_1, enemy_position, self)
 
-func nearest_player_in_distance(enemy_position, distance):
-	var nearest_distance
-	var nearest_player = 0
-	nearest_distance = enemy_position.distance_to(Global.player[0].global_position)
-	for i in range(Global.player_number):
-		if enemy_position.distance_to(Global.player[i].global_position) < nearest_distance:
-			nearest_distance = enemy_position.distance_to(Global.player[i].global_position)
-			nearest_player = i
-			
-	if nearest_distance > distance:
-		return null
-	else:
-		return nearest_player
 
 func _on_world_day_timer_timeout():
 	time_sec += 1

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhbwfyptv7w62"]
+
+[ext_resource type="Texture2D" uid="uid://b5iou1mvjf0wg" path="res://enemySwimming_1.png" id="1_ttsvr"]
+[ext_resource type="Script" path="res://enemy.gd" id="2_m8pnj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8prnr"]
+radius = 35.2812
+height = 84.6184
+
+[node name="Enemy" type="Sprite2D"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_ttsvr")
+script = ExtResource("2_m8pnj")
+
+[node name="Hitbox" type="Area2D" parent="." groups=["Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+rotation = 1.5708
+scale = Vector2(1.41719, 1.5757)
+shape = SubResource("CapsuleShape2D_8prnr")
+
+[node name="Stun_timer" type="Timer" parent="Hitbox"]
+wait_time = 0.1
+one_shot = true
+
+[node name="Turn_timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="Hitbox/Stun_timer" to="." method="_on_stun_timer_timeout"]
+[connection signal="timeout" from="Turn_timer" to="." method="_on_turn_timer_timeout"]

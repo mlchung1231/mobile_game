@@ -17,6 +17,21 @@ func instance_node(node, location, parent):
 	parent.add_child(node_instance)
 	node_instance.global_position = location
 	return node_instance
+	
+func nearest_player_in_distance(enemy_position, distance):
+	var nearest_distance
+	var nearest_player
+	nearest_distance = enemy_position.distance_to(Global.player[0].global_position)
+	nearest_player = Global.player[0]
+	for i in range(Global.player_number):
+		if enemy_position.distance_to(Global.player[i].global_position) < nearest_distance:
+			nearest_distance = enemy_position.distance_to(Global.player[i].global_position)
+			nearest_player = Global.player[i]
+			
+	if nearest_distance > distance:
+		return null
+	else:
+		return nearest_player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,3 +41,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
