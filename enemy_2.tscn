@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvt1l88u1hsaa"]
+
+[ext_resource type="Texture2D" uid="uid://vuxvj50b65yj" path="res://enemy_2.png" id="1_le5t5"]
+[ext_resource type="Script" path="res://enemy_2.gd" id="2_l0cjy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_letew"]
+radius = 105.0
+height = 210.0
+
+[node name="Enemy_2" type="Sprite2D"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_le5t5")
+script = ExtResource("2_l0cjy")
+
+[node name="Hitbox" type="Area2D" parent="." groups=["Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CapsuleShape2D_letew")
+
+[node name="Stun_timer" type="Timer" parent="Hitbox"]
+wait_time = 0.1
+one_shot = true
+
+[node name="Turn_timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="Hitbox/Stun_timer" to="." method="_on_stun_timer_timeout"]
+[connection signal="timeout" from="Turn_timer" to="." method="_on_turn_timer_timeout"]

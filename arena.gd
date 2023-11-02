@@ -1,9 +1,13 @@
 extends Node2D
 
 var enemy_1 = preload("res://enemy.tscn")
+var enemy_2 = preload("res://enemy_2.tscn")
+var enemy_3 = preload("res://enemy_3.tscn")
 var item_gun_1 = preload("res://item_gun.tscn")
 
 var time_sec = 1
+var enemy2_timer = 0
+var enemy3_timer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,11 +36,29 @@ func _on_enemy_spawn_timer_timeout():
 # 世界遊蕩怪物生成
 func _on_world_enemy_spawn_timer_timeout():
 	# 世界範圍內除玩家附近以外隨機生怪
+	var enemy1_position = _enemy_born_position()
+	Global.instance_node(enemy_1, enemy1_position, self)
+	
+	enemy2_timer += 1
+	enemy3_timer += 1
+	
+	if Global.daytime % 2 == 0:
+		if Global.daytime/2 >= 1 and enemy2_timer >= 2:
+			var enemy2_position = _enemy_born_position()
+			Global.instance_node(enemy_2, enemy2_position, self)
+			enemy2_timer = 0
+		
+		if Global.daytime/2 >= 0 and enemy3_timer >= 4:
+			var enemy3_position = _enemy_born_position()
+			Global.instance_node(enemy_3, enemy3_position, self)
+			enemy3_timer = 0
+			
+func _enemy_born_position():
 	var enemy_position = Vector2(randf_range(0,640),randf_range(0,360))
 	while Global.nearest_player_in_distance(enemy_position, Global.enemy_born_max_dis) != null:
 		enemy_position = Vector2(randf_range(0,640),randf_range(0,360))
 		
-	Global.instance_node(enemy_1, enemy_position, self)
+	return enemy_position
 
 # 槍枝道具生成
 func _on_item_gun_timer_timeout():

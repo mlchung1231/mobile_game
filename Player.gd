@@ -38,7 +38,6 @@ func _process(delta):
 	if Input.is_action_pressed("put"):
 		Global.instance_node(wall, global_position, Global.node_creation_parent)
 
-
 func _on_reload_speed_timeout():
 	can_shoot = true
 
