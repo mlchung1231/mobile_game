@@ -43,12 +43,12 @@ func _on_world_enemy_spawn_timer_timeout():
 	enemy3_timer += 1
 	
 	if Global.daytime % 2 == 0:
-		if Global.daytime/2 >= 1 and enemy2_timer >= 2:
+		if Global.daytime/2 >= 2 and enemy2_timer >= 2:
 			var enemy2_position = _enemy_born_position()
 			Global.instance_node(enemy_2, enemy2_position, self)
 			enemy2_timer = 0
 		
-		if Global.daytime/2 >= 0 and enemy3_timer >= 4:
+		if Global.daytime/2 >= 4 and enemy3_timer >= 4:
 			var enemy3_position = _enemy_born_position()
 			Global.instance_node(enemy_3, enemy3_position, self)
 			enemy3_timer = 0

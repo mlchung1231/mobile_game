@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgq3u2ynb61q4"]
+[gd_scene load_steps=6 format=3 uid="uid://dgq3u2ynb61q4"]
 
-[ext_resource type="Script" path="res://arena.gd" id="1_0errd"]
-[ext_resource type="PackedScene" uid="uid://0c8id4nsm8hd" path="res://player.tscn" id="2_axdbm"]
-[ext_resource type="PackedScene" uid="uid://bhbwfyptv7w62" path="res://enemy.tscn" id="3_fcbq1"]
-[ext_resource type="PackedScene" uid="uid://cbbxovsfn4jk2" path="res://player_2.tscn" id="4_1syic"]
-[ext_resource type="Script" path="res://World_enemy_spawn_timer.gd" id="5_f5as0"]
+[ext_resource type="Script" path="res://main.gd" id="1_5cd4c"]
+[ext_resource type="PackedScene" uid="uid://0c8id4nsm8hd" path="res://player.tscn" id="2_23goh"]
+[ext_resource type="PackedScene" uid="uid://cbbxovsfn4jk2" path="res://player_2.tscn" id="4_i457l"]
+[ext_resource type="Script" path="res://World_enemy_spawn_timer.gd" id="5_d2hwp"]
 
 [sub_resource type="Environment" id="Environment_xgrsk"]
 background_mode = 3
@@ -13,15 +12,13 @@ glow_bloom = 0.15
 glow_blend_mode = 0
 
 [node name="Arena" type="Node2D"]
-script = ExtResource("1_0errd")
+script = ExtResource("1_5cd4c")
 
-[node name="Player" parent="." instance=ExtResource("2_axdbm")]
+[node name="Player" parent="." instance=ExtResource("2_23goh")]
 position = Vector2(320, 180)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xgrsk")
-
-[node name="Enemy" parent="." instance=ExtResource("3_fcbq1")]
 
 [node name="Enemy_spawn_timer" type="Timer" parent="."]
 wait_time = 3.0
@@ -31,13 +28,13 @@ autostart = true
 wait_time = 10.0
 autostart = true
 
-[node name="Player2" parent="." instance=ExtResource("4_1syic")]
+[node name="Player2" parent="." instance=ExtResource("4_i457l")]
 position = Vector2(300, 200)
 
 [node name="World_enemy_spawn_timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
-script = ExtResource("5_f5as0")
+script = ExtResource("5_d2hwp")
 
 [node name="World_day_timer" type="Timer" parent="."]
 autostart = true

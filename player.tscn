@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://0c8id4nsm8hd"]
+[gd_scene load_steps=6 format=3 uid="uid://0c8id4nsm8hd"]
 
 [ext_resource type="Texture2D" uid="uid://cwlkhbaq35aie" path="res://playerGrey_up1.png" id="1_j0kvc"]
 [ext_resource type="Script" path="res://Player.gd" id="2_t0c86"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="3_nbnsp"]
+[ext_resource type="Texture2D" uid="uid://fjp8heyx6xdv" path="res://shoot_button.png" id="4_augsk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4lg4j"]
 radius = 53.3333
@@ -21,5 +23,38 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CapsuleShape2D_4lg4j")
 
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Virtual Joystick" parent="HUD" instance=ExtResource("3_nbnsp")]
+offset_left = 30.0
+offset_top = -120.0
+offset_right = 180.0
+offset_bottom = 30.0
+scale = Vector2(0.6, 0.6)
+action_left = "move_left"
+action_right = "move_right"
+action_up = "move_up"
+action_down = "move_down"
+
+[node name="Shoot_button" type="Button" parent="HUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 127.0
+offset_bottom = 127.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+toggle_mode = true
+icon = ExtResource("4_augsk")
+flat = true
+
 [connection signal="timeout" from="Reload_speed" to="." method="_on_reload_speed_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="button_down" from="HUD/Shoot_button" to="." method="_on_shoot_button_button_down"]
+[connection signal="button_up" from="HUD/Shoot_button" to="." method="_on_shoot_button_button_up"]
+[connection signal="pressed" from="HUD/Shoot_button" to="." method="_on_shoot_button_pressed"]
