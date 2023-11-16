@@ -1,0 +1,187 @@
+[gd_scene load_steps=2 format=3 uid="uid://can0krtptlfc5"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_x8kvs"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x8kvs")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="SettingMenu" type="Button" parent="Menu"]
+layout_mode = 2
+text = "---"
+
+[node name="Options" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -50.5
+offset_right = 72.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Setting" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+text = "Setting"
+
+[node name="Other1" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+text = "Other1"
+
+[node name="Other2" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+text = "Other2"
+
+[node name="BackFromOptions" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.5
+offset_top = -31.0
+offset_right = 22.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
+[node name="Setting" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Setting"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -43.0
+offset_right = 181.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Labels" type="VBoxContainer" parent="Setting/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Music" type="Label" parent="Setting/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Mosic"
+
+[node name="MovingVertical" type="Label" parent="Setting/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Moving Vertical"
+
+[node name="MovingHorizontal" type="Label" parent="Setting/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Moving Horizontal"
+
+[node name="ShootingVertical" type="Label" parent="Setting/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Shooting Vertical"
+
+[node name="shootingHorizontal" type="Label" parent="Setting/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Shooting Horizontal"
+
+[node name="Slider" type="VBoxContainer" parent="Setting/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Music" type="HSlider" parent="Setting/HBoxContainer/Slider"]
+layout_mode = 2
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.0
+
+[node name="MovingVertical" type="HSlider" parent="Setting/HBoxContainer/Slider"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = -20.0
+max_value = 20.0
+
+[node name="MovingHorizontal" type="HSlider" parent="Setting/HBoxContainer/Slider"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = -20.0
+max_value = 20.0
+
+[node name="ShootingVertical" type="HSlider" parent="Setting/HBoxContainer/Slider"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = -20.0
+max_value = 20.0
+
+[node name="ShootingHorizontal" type="HSlider" parent="Setting/HBoxContainer/Slider"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = -20.0
+max_value = 20.0
+
+[node name="BackFromSetting" type="Button" parent="Setting"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.5
+offset_top = 150.0
+offset_right = 22.5
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
+[connection signal="pressed" from="Menu/SettingMenu" to="." method="_on_setting_menu_pressed"]
+[connection signal="pressed" from="Options/VBoxContainer/Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="Options/BackFromOptions" to="." method="_on_back_from_options_pressed"]
+[connection signal="value_changed" from="Setting/HBoxContainer/Slider/Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="Setting/HBoxContainer/Slider/MovingVertical" to="." method="_on_moving_vertical_value_changed"]
+[connection signal="value_changed" from="Setting/HBoxContainer/Slider/MovingHorizontal" to="." method="_on_moving_horizontal_value_changed"]
+[connection signal="value_changed" from="Setting/HBoxContainer/Slider/ShootingVertical" to="." method="_on_shooting_vertical_value_changed"]
+[connection signal="value_changed" from="Setting/HBoxContainer/Slider/ShootingHorizontal" to="." method="_on_shooting_horizontal_value_changed"]
+[connection signal="pressed" from="Setting/BackFromSetting" to="." method="_on_back_from_setting_pressed"]

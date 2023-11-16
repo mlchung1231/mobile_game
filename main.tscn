@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgq3u2ynb61q4"]
+[gd_scene load_steps=7 format=3 uid="uid://dgq3u2ynb61q4"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_5cd4c"]
 [ext_resource type="PackedScene" uid="uid://0c8id4nsm8hd" path="res://player.tscn" id="2_23goh"]
 [ext_resource type="PackedScene" uid="uid://cbbxovsfn4jk2" path="res://player_2.tscn" id="4_i457l"]
 [ext_resource type="Script" path="res://World_enemy_spawn_timer.gd" id="5_d2hwp"]
+[ext_resource type="PackedScene" uid="uid://can0krtptlfc5" path="res://menu.tscn" id="5_vwhe2"]
 
 [sub_resource type="Environment" id="Environment_xgrsk"]
 background_mode = 3
@@ -13,6 +14,10 @@ glow_blend_mode = 0
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_5cd4c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("5_vwhe2")]
 
 [node name="Player" parent="." instance=ExtResource("2_23goh")]
 position = Vector2(320, 180)

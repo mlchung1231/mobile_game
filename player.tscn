@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://0c8id4nsm8hd"]
+[gd_scene load_steps=7 format=3 uid="uid://0c8id4nsm8hd"]
 
 [ext_resource type="Texture2D" uid="uid://cwlkhbaq35aie" path="res://playerGrey_up1.png" id="1_j0kvc"]
 [ext_resource type="Script" path="res://Player.gd" id="2_t0c86"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="3_nbnsp"]
+[ext_resource type="Script" path="res://HUD.gd" id="3_xur8b"]
 [ext_resource type="Texture2D" uid="uid://fjp8heyx6xdv" path="res://shoot_button.png" id="4_augsk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4lg4j"]
@@ -24,8 +25,9 @@ one_shot = true
 shape = SubResource("CapsuleShape2D_4lg4j")
 
 [node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("3_xur8b")
 
-[node name="Virtual Joystick" parent="HUD" instance=ExtResource("3_nbnsp")]
+[node name="Virtual_Joystick" parent="HUD" instance=ExtResource("3_nbnsp")]
 offset_left = 30.0
 offset_top = -120.0
 offset_right = 180.0
@@ -57,4 +59,3 @@ flat = true
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="button_down" from="HUD/Shoot_button" to="." method="_on_shoot_button_button_down"]
 [connection signal="button_up" from="HUD/Shoot_button" to="." method="_on_shoot_button_button_up"]
-[connection signal="pressed" from="HUD/Shoot_button" to="." method="_on_shoot_button_pressed"]

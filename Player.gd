@@ -73,16 +73,6 @@ func _on_shoot_button_button_down():
 	# 左鍵射擊
 	$HUD/Shoot_button.modulate = Color.BURLYWOOD
 	is_shooting = true
-		
-	
-	
-func _on_shoot_button_pressed():
-#	$HUD/Shoot_button.modulate = Color.BURLYWOOD
-#	if  Global.node_creation_parent != null and can_shoot and is_dead == false:
-#		Global.instance_node(bullet, global_position, Global.node_creation_parent)
-#		$Reload_speed.start()
-#		can_shoot = false
-	pass
 
 func _on_shoot_button_button_up():
 	$HUD/Shoot_button.modulate = Color.WHITE
