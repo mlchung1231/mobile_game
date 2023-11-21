@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://bssgw1evfifn7"]
 
-[ext_resource type="Texture2D" uid="uid://d2tif3apv21fl" path="res://armor_icon.png" id="1_ywuqh"]
-[ext_resource type="Script" path="res://item_armor.gd" id="2_n81nx"]
+[ext_resource type="Texture2D" uid="uid://d2tif3apv21fl" path="res://enemy/art/armor_icon.png" id="1_petiy"]
+[ext_resource type="Script" path="res://item/item_armor.gd" id="2_1m0du"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ti0w"]
 radius = 121.655
 
 [node name="Item_Armor" type="Sprite2D"]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_ywuqh")
-script = ExtResource("2_n81nx")
+texture = ExtResource("1_petiy")
+script = ExtResource("2_1m0du")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Armor_pick_up"]]
 

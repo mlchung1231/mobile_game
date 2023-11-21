@@ -2,7 +2,7 @@ extends Sprite2D
 
 var speed = 75
 var shoot_range = 80
-var enemy_bullet = preload("res://enemy_bullet.tscn")
+var enemy_bullet = preload("res://enemy/enemy_bullet.tscn")
 
 var velocity = Vector2()
 

@@ -1,10 +1,10 @@
 extends Node2D
 
-var enemy_1 = preload("res://enemy.tscn")
-var enemy_2 = preload("res://enemy_2.tscn")
-var enemy_3 = preload("res://enemy_3.tscn")
-var item_gun_1 = preload("res://item_gun.tscn")
-var item_armor_1 = preload("res://item_armor.tscn")
+var enemy_1 = preload("res://enemy/enemy.tscn")
+var enemy_2 = preload("res://enemy/enemy_2.tscn")
+var enemy_3 = preload("res://enemy/enemy_3.tscn")
+var item_gun_1 = preload("res://item/item_gun.tscn")
+var item_armor_1 = preload("res://item/item_armor.tscn")
 
 var time_sec = 1
 var enemy2_timer = 0

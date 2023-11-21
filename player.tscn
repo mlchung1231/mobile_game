@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=3 uid="uid://0c8id4nsm8hd"]
 
-[ext_resource type="Texture2D" uid="uid://cwlkhbaq35aie" path="res://playerGrey_up1.png" id="1_j0kvc"]
+[ext_resource type="Texture2D" uid="uid://cwlkhbaq35aie" path="res://enemy/art/playerGrey_up1.png" id="1_3kmul"]
 [ext_resource type="Script" path="res://Player.gd" id="2_t0c86"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://joystick/virtual_joystick.tscn" id="3_nbnsp"]
 [ext_resource type="Script" path="res://HUD.gd" id="3_xur8b"]
-[ext_resource type="Texture2D" uid="uid://fjp8heyx6xdv" path="res://shoot_button.png" id="4_augsk"]
+[ext_resource type="Texture2D" uid="uid://fjp8heyx6xdv" path="res://enemy/art/shoot_button.png" id="5_x262o"]
 [ext_resource type="Script" path="res://Healthbar.gd" id="6_folfc"]
-[ext_resource type="Texture2D" uid="uid://vkfw5wbvqu2v" path="res://HealthBack.png" id="7_bn4dr"]
-[ext_resource type="Texture2D" uid="uid://b3rsjg7lq8skw" path="res://Healthover.png" id="8_34shl"]
-[ext_resource type="Texture2D" uid="uid://dcohx7cp5slwt" path="res://HealthProcess.png" id="9_sf8ib"]
-[ext_resource type="Texture2D" uid="uid://d2tif3apv21fl" path="res://armor_icon.png" id="10_0jrgv"]
+[ext_resource type="Texture2D" uid="uid://vkfw5wbvqu2v" path="res://enemy/art/HealthBack.png" id="7_bf6wh"]
+[ext_resource type="Texture2D" uid="uid://b3rsjg7lq8skw" path="res://enemy/art/Healthover.png" id="8_22np4"]
+[ext_resource type="Texture2D" uid="uid://dcohx7cp5slwt" path="res://enemy/art/HealthProcess.png" id="9_531ha"]
+[ext_resource type="Texture2D" uid="uid://d2tif3apv21fl" path="res://enemy/art/armor_icon.png" id="10_rdh3s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4lg4j"]
 radius = 53.3333
@@ -23,7 +23,7 @@ font_size = 60
 
 [node name="Player" type="Sprite2D"]
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_j0kvc")
+texture = ExtResource("1_3kmul")
 script = ExtResource("2_t0c86")
 
 [node name="Reload_speed" type="Timer" parent="."]
@@ -67,7 +67,7 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.3, 0.3)
 toggle_mode = true
-icon = ExtResource("4_augsk")
+icon = ExtResource("5_x262o")
 flat = true
 
 [node name="Healthbar" type="Control" parent="HUD"]
@@ -85,9 +85,9 @@ offset_right = 1152.0
 offset_bottom = 131.0
 scale = Vector2(0.2, 0.2)
 value = 100.0
-texture_under = ExtResource("7_bn4dr")
-texture_over = ExtResource("8_34shl")
-texture_progress = ExtResource("9_sf8ib")
+texture_under = ExtResource("7_bf6wh")
+texture_over = ExtResource("8_22np4")
+texture_progress = ExtResource("9_531ha")
 tint_progress = Color(0, 1, 0, 1)
 
 [node name="Hp_real" type="Label" parent="HUD/Healthbar/Healthbar"]
@@ -121,7 +121,7 @@ text = "0"
 [node name="ArmorIcon" type="Sprite2D" parent="HUD/Armor"]
 position = Vector2(-31, 10)
 scale = Vector2(0.15, 0.15)
-texture = ExtResource("10_0jrgv")
+texture = ExtResource("10_rdh3s")
 
 [connection signal="timeout" from="Reload_speed" to="." method="_on_reload_speed_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

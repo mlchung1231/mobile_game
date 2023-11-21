@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2w4ec701on76"]
 
-[ext_resource type="Texture2D" uid="uid://dntq7sjcik0vh" path="res://gun.png" id="1_evonj"]
-[ext_resource type="Script" path="res://item_gun.gd" id="2_gnnaw"]
+[ext_resource type="Texture2D" uid="uid://dntq7sjcik0vh" path="res://enemy/art/gun.png" id="1_cy35l"]
+[ext_resource type="Script" path="res://item/item_gun.gd" id="2_8pooe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ti0w"]
 radius = 228.035
 
 [node name="Item_gun" type="Sprite2D"]
 scale = Vector2(0.075, 0.075)
-texture = ExtResource("1_evonj")
-script = ExtResource("2_gnnaw")
+texture = ExtResource("1_cy35l")
+script = ExtResource("2_8pooe")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Gun_pick_up"]]
 

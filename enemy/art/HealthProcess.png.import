@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vuxvj50b65yj"
-path="res://.godot/imported/enemy_2.png-ff3b86e3515ff1b8ca17ece408605035.ctex"
+uid="uid://dcohx7cp5slwt"
+path="res://.godot/imported/HealthProcess.png-ba83ec4e633e5c2ca68d3cac8ebd72d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy_2.png"
-dest_files=["res://.godot/imported/enemy_2.png-ff3b86e3515ff1b8ca17ece408605035.ctex"]
+source_file="res://enemy/art/HealthProcess.png"
+dest_files=["res://.godot/imported/HealthProcess.png-ba83ec4e633e5c2ca68d3cac8ebd72d0.ctex"]
 
 [params]
 

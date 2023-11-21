@@ -1,23 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhbwfyptv7w62"]
+[gd_scene load_steps=4 format=3 uid="uid://dvt1l88u1hsaa"]
 
-[ext_resource type="Texture2D" uid="uid://b5iou1mvjf0wg" path="res://enemySwimming_1.png" id="1_ttsvr"]
-[ext_resource type="Script" path="res://enemy.gd" id="2_m8pnj"]
+[ext_resource type="Texture2D" uid="uid://vuxvj50b65yj" path="res://enemy/art/enemy_2.png" id="1_le5t5"]
+[ext_resource type="Script" path="res://enemy/enemy_2.gd" id="2_l0cjy"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8prnr"]
-radius = 35.2812
-height = 84.6184
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_letew"]
+radius = 105.0
+height = 210.0
 
-[node name="Enemy" type="Sprite2D"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_ttsvr")
-script = ExtResource("2_m8pnj")
+[node name="Enemy_2" type="Sprite2D"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_le5t5")
+script = ExtResource("2_l0cjy")
 
 [node name="Hitbox" type="Area2D" parent="." groups=["Enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-rotation = 1.5708
-scale = Vector2(1.41719, 1.5757)
-shape = SubResource("CapsuleShape2D_8prnr")
+shape = SubResource("CapsuleShape2D_letew")
 
 [node name="Stun_timer" type="Timer" parent="Hitbox"]
 wait_time = 0.1
