@@ -1,5 +1,7 @@
 extends Sprite2D
 
+var hp = 100
+var defense = 0
 var speed = 200
 var velocity = Vector2()
 var temp_velocity = Vector2(1, 0)
@@ -7,10 +9,13 @@ var temp_velocity = Vector2(1, 0)
 var bullet = preload("res://bullet.tscn")
 var wall = preload("res://wall.tscn")
 
+var stun = false
 var have_gun = false
 var can_shoot = false
 var is_dead = false
 var is_shooting = false
+
+var have_clothes = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -51,11 +56,15 @@ func _on_reload_speed_timeout():
 # 玩家碰撞箱判定
 func _on_hitbox_area_entered(area):
 	# 玩家受擊
-#	if area.is_in_group("Enemy"):
-#		is_dead == true
-#		visible = false
-#		await(get_tree().create_timer(0.5).timeout)
-#		get_tree().reload_current_scene()
+	if area.is_in_group("Enemy"):
+		modulate = Color.RED
+		velocity = -velocity * 100
+		hp -= 10
+		$HUD/Healthbar/Healthbar.value = hp
+		$HUD/Healthbar/Healthbar/Hp_real.text = str(hp)
+		stun = true
+		$Hitbox/Stun_timer.start()
+		area.get_parent().queue_free()
 		
 	# 玩家撿取槍枝道具
 	if area.is_in_group("Gun_pick_up") and is_dead == false:
@@ -63,6 +72,13 @@ func _on_hitbox_area_entered(area):
 			$HUD/Shoot_button.modulate = Color.WHITE
 		have_gun = true
 		can_shoot = true
+		
+	# 玩家撿取防具道具
+	if area.is_in_group("Armor_pick_up") and is_dead == false:
+		if have_clothes == false:
+			have_clothes = true
+			defense += 3
+			$HUD/Armor.text = str(defense)
 		
 	# 玩家撞牆(暫停開發)
 	if area.is_in_group("Touch_wall"):
@@ -77,3 +93,8 @@ func _on_shoot_button_button_down():
 func _on_shoot_button_button_up():
 	$HUD/Shoot_button.modulate = Color.WHITE
 	is_shooting = false
+
+
+func _on_stun_timer_timeout():
+	modulate = Color.WHITE
+	stun = false

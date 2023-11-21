@@ -29,7 +29,7 @@ func _process(delta):
 	
 	if stun == false:
 		# 怪物晚間無視距離追擊最近玩家
-		if Global.daytime % 2 == 0:
+		if Global.night == 1:
 			nearest_player = Global.nearest_player_in_distance(global_position, 600)
 			velocity = global_position.direction_to(nearest_player.global_position)
 		

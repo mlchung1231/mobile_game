@@ -4,6 +4,7 @@ var enemy_1 = preload("res://enemy.tscn")
 var enemy_2 = preload("res://enemy_2.tscn")
 var enemy_3 = preload("res://enemy_3.tscn")
 var item_gun_1 = preload("res://item_gun.tscn")
+var item_armor_1 = preload("res://item_armor.tscn")
 
 var time_sec = 1
 var enemy2_timer = 0
@@ -42,13 +43,13 @@ func _on_world_enemy_spawn_timer_timeout():
 	enemy2_timer += 1
 	enemy3_timer += 1
 	
-	if Global.daytime % 2 == 0:
-		if Global.daytime/2 >= 2 and enemy2_timer >= 2:
+	if Global.night == 1:
+		if Global.day >= 3 and enemy2_timer >= 2:
 			var enemy2_position = _enemy_born_position()
 			Global.instance_node(enemy_2, enemy2_position, self)
 			enemy2_timer = 0
 		
-		if Global.daytime/2 >= 4 and enemy3_timer >= 4:
+		if Global.day >= 5 and enemy3_timer >= 4:
 			var enemy3_position = _enemy_born_position()
 			Global.instance_node(enemy_3, enemy3_position, self)
 			enemy3_timer = 0
@@ -63,15 +64,20 @@ func _enemy_born_position():
 # 槍枝道具生成
 func _on_item_gun_timer_timeout():
 	var item_gun_position = Vector2(randf_range(50,590), randf_range(30,330))
+	var item_armor_position = Vector2(randf_range(50,590), randf_range(30,330))
 	
 	Global.instance_node(item_gun_1, item_gun_position, self)
+	Global.instance_node(item_armor_1, item_armor_position, self)
 
 # 世界時間與天數
 func _on_world_day_timer_timeout():
 	time_sec += 1
 	if time_sec > 20:
-		Global.daytime += 1
+		Global.night = -Global.night
 		time_sec = 1
+		if Global.night == -1:
+			Global.day += 1
+		$World_day_timer/Day.text = "Day " + str(Global.day)
 	update_time(time_sec)
 
 func update_time(time_sec):

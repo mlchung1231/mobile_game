@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgq3u2ynb61q4"]
+[gd_scene load_steps=9 format=3 uid="uid://dgq3u2ynb61q4"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_5cd4c"]
 [ext_resource type="PackedScene" uid="uid://0c8id4nsm8hd" path="res://player.tscn" id="2_23goh"]
@@ -11,6 +11,12 @@ background_mode = 3
 glow_enabled = true
 glow_bloom = 0.15
 glow_blend_mode = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_7cilj"]
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_wuuvi"]
+font_size = 28
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_5cd4c")
@@ -44,15 +50,23 @@ script = ExtResource("5_d2hwp")
 [node name="World_day_timer" type="Timer" parent="."]
 autostart = true
 
+[node name="Day" type="Label" parent="World_day_timer"]
+offset_left = 285.0
+offset_right = 360.0
+offset_bottom = 42.0
+text = "Day 1"
+label_settings = SubResource("LabelSettings_7cilj")
+
 [node name="Daytimer" type="Label" parent="World_day_timer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 26.0
+offset_left = 60.0
+offset_right = 100.0
+offset_bottom = 42.0
 grow_horizontal = 2
 text = "1"
+label_settings = SubResource("LabelSettings_wuuvi")
 horizontal_alignment = 1
 
 [connection signal="timeout" from="Enemy_spawn_timer" to="." method="_on_enemy_spawn_timer_timeout"]

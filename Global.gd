@@ -5,7 +5,8 @@ var node_creation_parent = null
 var player_number = 2
 var player = [null,null,null,null,null,null,null,null]
 
-var daytime = 1
+var day = 1
+var night = -1
 
 var enemy_born_max_dis = 120
 var enemy_born_min_dis = 50
