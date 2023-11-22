@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c31ec8h8h8ubl"
-path="res://.godot/imported/playerGrey_up2.png-aacd304c890961b364e462b02bfede5a.ctex"
+uid="uid://dcohx7cp5slwt"
+path="res://.godot/imported/HealthProcess.png-d6b04cf1a860fc6363b5be639dd95288.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/art/playerGrey_up2.png"
-dest_files=["res://.godot/imported/playerGrey_up2.png-aacd304c890961b364e462b02bfede5a.ctex"]
+source_file="res://art/HealthProcess.png"
+dest_files=["res://.godot/imported/HealthProcess.png-d6b04cf1a860fc6363b5be639dd95288.ctex"]
 
 [params]
 

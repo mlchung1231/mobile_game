@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2tif3apv21fl"
-path="res://.godot/imported/armor_icon.png-7dd49b6e1f1732b64501720541f39c11.ctex"
+uid="uid://b5iou1mvjf0wg"
+path="res://.godot/imported/enemySwimming_1.png-dd0e11759dc3d624c8a704f6e98a3d80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/art/armor_icon.png"
-dest_files=["res://.godot/imported/armor_icon.png-7dd49b6e1f1732b64501720541f39c11.ctex"]
+source_file="res://art/enemySwimming_1.png"
+dest_files=["res://.godot/imported/enemySwimming_1.png-dd0e11759dc3d624c8a704f6e98a3d80.ctex"]
 
 [params]
 

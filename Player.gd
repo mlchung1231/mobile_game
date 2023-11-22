@@ -1,7 +1,7 @@
 extends Sprite2D
 
 var hp = 100
-var defense = 0
+var shield = 0
 var speed = 200
 var velocity = Vector2()
 var temp_velocity = Vector2(1, 0)
@@ -61,7 +61,6 @@ func _on_hitbox_area_entered(area):
 		velocity = -velocity * 100
 		hp -= 10
 		$HUD/Healthbar/Healthbar.value = hp
-		$HUD/Healthbar/Healthbar/Hp_real.text = str(hp)
 		stun = true
 		$Hitbox/Stun_timer.start()
 		area.get_parent().queue_free()
@@ -77,8 +76,8 @@ func _on_hitbox_area_entered(area):
 	if area.is_in_group("Armor_pick_up") and is_dead == false:
 		if have_clothes == false:
 			have_clothes = true
-			defense += 3
-			$HUD/Armor.text = str(defense)
+			shield += 3
+			$HUD/Armor/Armor_value.text = str(shield)
 		
 	# 玩家撞牆(暫停開發)
 	if area.is_in_group("Touch_wall"):

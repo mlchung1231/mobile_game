@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwlkhbaq35aie"
-path="res://.godot/imported/playerGrey_up1.png-2e1bbff93dbcbf52cba945729c185bd8.ctex"
+uid="uid://fjp8heyx6xdv"
+path="res://.godot/imported/shoot_button.png-4885da0eda63ef3bfaf412c99c9b0f6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/art/playerGrey_up1.png"
-dest_files=["res://.godot/imported/playerGrey_up1.png-2e1bbff93dbcbf52cba945729c185bd8.ctex"]
+source_file="res://art/shoot_button.png"
+dest_files=["res://.godot/imported/shoot_button.png-4885da0eda63ef3bfaf412c99c9b0f6e.ctex"]
 
 [params]
 

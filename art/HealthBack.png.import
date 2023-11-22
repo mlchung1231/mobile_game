@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgls6fb0i8jl3"
-path="res://.godot/imported/wall.png-947bb95f88cb6381955ce079e10ff567.ctex"
+uid="uid://vkfw5wbvqu2v"
+path="res://.godot/imported/HealthBack.png-615ea64bb6fff0f3d1c22abb4b1b1c34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/art/wall.png"
-dest_files=["res://.godot/imported/wall.png-947bb95f88cb6381955ce079e10ff567.ctex"]
+source_file="res://art/HealthBack.png"
+dest_files=["res://.godot/imported/HealthBack.png-615ea64bb6fff0f3d1c22abb4b1b1c34.ctex"]
 
 [params]
 

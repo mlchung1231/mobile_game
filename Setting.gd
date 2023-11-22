@@ -1,9 +1,9 @@
 extends Node
 
-var moving_Vposition = 240
-var moving_Hposition = 30
-var shooting_Vposition = 270
-var shooting_Hposition = 550
+var moving_Vposition = 300
+var moving_Hposition = 90
+var shooting_Vposition = 300
+var shooting_Hposition = 800
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

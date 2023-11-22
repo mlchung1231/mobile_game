@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcohx7cp5slwt"
-path="res://.godot/imported/HealthProcess.png-ba83ec4e633e5c2ca68d3cac8ebd72d0.ctex"
+uid="uid://30epygubfv81"
+path="res://.godot/imported/移動桿.png-dca46a477f9300c853ca71da7611dc88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/art/HealthProcess.png"
-dest_files=["res://.godot/imported/HealthProcess.png-ba83ec4e633e5c2ca68d3cac8ebd72d0.ctex"]
+source_file="res://art/移動桿.png"
+dest_files=["res://.godot/imported/移動桿.png-dca46a477f9300c853ca71da7611dc88.ctex"]
 
 [params]
 

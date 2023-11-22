@@ -22,8 +22,8 @@ Setting="*res://Setting.gd"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=360
+window/size/viewport_width=932
+window/size/viewport_height=430
 window/stretch/mode="canvas_items"
 
 [dotnet]

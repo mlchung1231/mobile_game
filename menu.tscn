@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://can0krtptlfc5"]
+[gd_scene load_steps=3 format=3 uid="uid://can0krtptlfc5"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_x8kvs"]
+[ext_resource type="Texture2D" uid="uid://2ajw4qlimvv7" path="res://art/設定.png" id="2_lrn7d"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -22,7 +23,7 @@ grow_horizontal = 0
 
 [node name="SettingMenu" type="Button" parent="Menu"]
 layout_mode = 2
-text = "---"
+icon = ExtResource("2_lrn7d")
 
 [node name="Options" type="Control" parent="."]
 visible = false

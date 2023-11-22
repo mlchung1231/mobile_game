@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m8lt80t6jfkd"
-path="res://.godot/imported/enemy_3.png-edd958177a66c57d1a78ededdfe4ec0b.ctex"
+uid="uid://bbmgtiye48ni0"
+path="res://.godot/imported/背包.png-02f08e4942a38fadb8305056e323f1cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/art/enemy_3.png"
-dest_files=["res://.godot/imported/enemy_3.png-edd958177a66c57d1a78ededdfe4ec0b.ctex"]
+source_file="res://art/背包.png"
+dest_files=["res://.godot/imported/背包.png-02f08e4942a38fadb8305056e323f1cf.ctex"]
 
 [params]
 

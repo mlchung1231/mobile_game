@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8oidltia1y5"
-path="res://.godot/imported/bullet.png-2c403cee213fa66613571486aa733dc9.ctex"
+uid="uid://b3rsjg7lq8skw"
+path="res://.godot/imported/Healthover.png-663f28d39e8ad17c3fd19fb7b9d535fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/art/bullet.png"
-dest_files=["res://.godot/imported/bullet.png-2c403cee213fa66613571486aa733dc9.ctex"]
+source_file="res://art/Healthover.png"
+dest_files=["res://.godot/imported/Healthover.png-663f28d39e8ad17c3fd19fb7b9d535fa.ctex"]
 
 [params]
 

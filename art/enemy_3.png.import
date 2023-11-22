@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fjp8heyx6xdv"
-path="res://.godot/imported/shoot_button.png-8f6baa512f4676933487703220832c24.ctex"
+uid="uid://m8lt80t6jfkd"
+path="res://.godot/imported/enemy_3.png-37d8fdf7997f5d3469a43d9d5ce7db54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/art/shoot_button.png"
-dest_files=["res://.godot/imported/shoot_button.png-8f6baa512f4676933487703220832c24.ctex"]
+source_file="res://art/enemy_3.png"
+dest_files=["res://.godot/imported/enemy_3.png-37d8fdf7997f5d3469a43d9d5ce7db54.ctex"]
 
 [params]
 

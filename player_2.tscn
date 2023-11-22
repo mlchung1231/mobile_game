@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbbxovsfn4jk2"]
 
-[ext_resource type="Texture2D" uid="uid://c31ec8h8h8ubl" path="res://enemy/art/playerGrey_up2.png" id="1_ht663"]
+[ext_resource type="Texture2D" uid="uid://c31ec8h8h8ubl" path="res://art/playerGrey_up2.png" id="1_ht663"]
 [ext_resource type="Script" path="res://player_2.gd" id="2_d4hbq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yvtcu"]
