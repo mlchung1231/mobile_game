@@ -1,0 +1,259 @@
+[gd_scene load_steps=14 format=3 uid="uid://can0krtptlfc5"]
+
+[ext_resource type="Script" path="res://menu/menu.gd" id="1_02cjx"]
+[ext_resource type="Texture2D" uid="uid://30epygubfv81" path="res://art/移動桿.png" id="3_6oc1v"]
+[ext_resource type="Texture2D" uid="uid://dsom27sbug13" path="res://art/攻擊.png" id="4_a8rna"]
+[ext_resource type="Script" path="res://menu/Adjustment/Joystick.gd" id="4_enuys"]
+[ext_resource type="Texture2D" uid="uid://bbmgtiye48ni0" path="res://art/背包.png" id="5_qfhd8"]
+[ext_resource type="Script" path="res://menu/Adjustment/Attack.gd" id="6_huuhr"]
+[ext_resource type="Texture2D" uid="uid://di2y08rae4yc2" path="res://art/建造.png" id="6_l0rdr"]
+[ext_resource type="Script" path="res://menu/Adjustment/Build.gd" id="8_3e5tn"]
+[ext_resource type="Script" path="res://menu/Adjustment/Bag.gd" id="10_4rhux"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i7dfs"]
+radius = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6u7v8"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4nqgb"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sd4pr"]
+radius = 40.0
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_02cjx")
+
+[node name="Options" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -55.0
+offset_right = 149.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Setting" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+text = "Setting"
+
+[node name="Adjustment" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+text = "Adjustment"
+
+[node name="Other2" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+text = "Other2"
+
+[node name="BackFromOptions" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.5
+offset_top = -47.0
+offset_right = 35.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
+[node name="Setting" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Setting"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -43.0
+offset_right = 181.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Labels" type="VBoxContainer" parent="Setting/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Music" type="Label" parent="Setting/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Music"
+
+[node name="MovingVertical" type="Label" parent="Setting/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Moving Vertical"
+
+[node name="MovingHorizontal" type="Label" parent="Setting/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Moving Horizontal"
+
+[node name="ShootingVertical" type="Label" parent="Setting/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Shooting Vertical"
+
+[node name="shootingHorizontal" type="Label" parent="Setting/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Shooting Horizontal"
+
+[node name="Slider" type="VBoxContainer" parent="Setting/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Music" type="HSlider" parent="Setting/HBoxContainer/Slider"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = -30.0
+max_value = 6.0
+value = -6.0
+
+[node name="MovingVertical" type="HSlider" parent="Setting/HBoxContainer/Slider"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = -50.0
+max_value = 50.0
+
+[node name="MovingHorizontal" type="HSlider" parent="Setting/HBoxContainer/Slider"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = -50.0
+max_value = 50.0
+
+[node name="ShootingVertical" type="HSlider" parent="Setting/HBoxContainer/Slider"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = -50.0
+max_value = 50.0
+
+[node name="ShootingHorizontal" type="HSlider" parent="Setting/HBoxContainer/Slider"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = -50.0
+max_value = 50.0
+
+[node name="BackFromSetting" type="Button" parent="Setting"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -38.5
+offset_top = 165.0
+offset_right = 38.5
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
+[node name="Adjustment" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Joystick" type="Sprite2D" parent="Adjustment"]
+position = Vector2(50, 300)
+texture = ExtResource("3_6oc1v")
+offset = Vector2(44, 44)
+script = ExtResource("4_enuys")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Adjustment/Joystick"]
+position = Vector2(45, 44)
+shape = SubResource("CircleShape2D_i7dfs")
+
+[node name="Attack" type="Sprite2D" parent="Adjustment"]
+position = Vector2(800, 300)
+texture = ExtResource("4_a8rna")
+offset = Vector2(44, 44)
+script = ExtResource("6_huuhr")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Adjustment/Attack"]
+position = Vector2(44, 44)
+shape = SubResource("CircleShape2D_6u7v8")
+
+[node name="Build" type="Sprite2D" parent="Adjustment"]
+position = Vector2(690, 300)
+texture = ExtResource("6_l0rdr")
+offset = Vector2(44, 44)
+script = ExtResource("8_3e5tn")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Adjustment/Build"]
+position = Vector2(44, 44)
+shape = SubResource("CircleShape2D_4nqgb")
+
+[node name="Bag" type="Sprite2D" parent="Adjustment"]
+position = Vector2(580, 300)
+texture = ExtResource("5_qfhd8")
+offset = Vector2(44, 44)
+script = ExtResource("10_4rhux")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Adjustment/Bag"]
+position = Vector2(44, 45)
+shape = SubResource("CircleShape2D_sd4pr")
+
+[node name="BackFromAdj" type="Button" parent="Adjustment"]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 394.0
+offset_right = 495.0
+offset_bottom = 425.0
+text = "Back"
+
+[connection signal="pressed" from="Options/VBoxContainer/Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="Options/VBoxContainer/Adjustment" to="." method="_on_adjustment_pressed"]
+[connection signal="pressed" from="Options/BackFromOptions" to="." method="_on_back_from_options_pressed"]
+[connection signal="value_changed" from="Setting/HBoxContainer/Slider/Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="Setting/HBoxContainer/Slider/MovingVertical" to="." method="_on_moving_vertical_value_changed"]
+[connection signal="value_changed" from="Setting/HBoxContainer/Slider/MovingHorizontal" to="." method="_on_moving_horizontal_value_changed"]
+[connection signal="value_changed" from="Setting/HBoxContainer/Slider/ShootingVertical" to="." method="_on_shooting_vertical_value_changed"]
+[connection signal="value_changed" from="Setting/HBoxContainer/Slider/ShootingHorizontal" to="." method="_on_shooting_horizontal_value_changed"]
+[connection signal="pressed" from="Setting/BackFromSetting" to="." method="_on_back_from_setting_pressed"]
+[connection signal="pressed" from="Adjustment/Joystick/TouchScreenButton" to="Adjustment/Joystick" method="_on_touch_screen_button_pressed"]
+[connection signal="released" from="Adjustment/Joystick/TouchScreenButton" to="Adjustment/Joystick" method="_on_touch_screen_button_released"]
+[connection signal="pressed" from="Adjustment/Attack/TouchScreenButton" to="Adjustment/Attack" method="_on_touch_screen_button_pressed"]
+[connection signal="released" from="Adjustment/Attack/TouchScreenButton" to="Adjustment/Attack" method="_on_touch_screen_button_released"]
+[connection signal="pressed" from="Adjustment/Build/TouchScreenButton" to="Adjustment/Build" method="_on_touch_screen_button_pressed"]
+[connection signal="released" from="Adjustment/Build/TouchScreenButton" to="Adjustment/Build" method="_on_touch_screen_button_released"]
+[connection signal="pressed" from="Adjustment/Bag/TouchScreenButton" to="Adjustment/Bag" method="_on_touch_screen_button_pressed"]
+[connection signal="released" from="Adjustment/Bag/TouchScreenButton" to="Adjustment/Bag" method="_on_touch_screen_button_released"]
+[connection signal="pressed" from="Adjustment/BackFromAdj" to="." method="_on_back_from_adj_pressed"]

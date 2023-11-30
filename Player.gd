@@ -3,7 +3,7 @@ extends Sprite2D
 var hp = 100
 var shield = 0
 var speed = 200
-var velocity = Vector2()
+var velocity = Vector2(0,0)
 var temp_velocity = Vector2(1, 0)
 
 var bullet = preload("res://bullet.tscn")
@@ -28,9 +28,9 @@ func _exit_tree():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# 玩家移動
-	velocity.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left")) 
-	velocity.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
-	velocity = velocity.normalized()
+#	velocity.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left")) 
+#	velocity.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
+#	velocity = velocity.normalized()
 	if velocity != Vector2(0,0):
 		temp_velocity = velocity
 	
@@ -47,7 +47,7 @@ func _process(delta):
 		Global.instance_node(wall, global_position, Global.node_creation_parent)
 	
 	if have_gun == false:
-		$HUD/Shoot_button.modulate = Color.WEB_GRAY
+		$HUD/Attack_button.modulate = Color.WEB_GRAY
 	
 
 func _on_reload_speed_timeout():
@@ -58,7 +58,6 @@ func _on_hitbox_area_entered(area):
 	# 玩家受擊
 	if area.is_in_group("Enemy"):
 		modulate = Color.RED
-		velocity = -velocity * 100
 		hp -= 10
 		$HUD/Healthbar/Healthbar.value = hp
 		stun = true
@@ -68,7 +67,7 @@ func _on_hitbox_area_entered(area):
 	# 玩家撿取槍枝道具
 	if area.is_in_group("Gun_pick_up") and is_dead == false:
 		if have_gun == false:
-			$HUD/Shoot_button.modulate = Color.WHITE
+			$HUD/Attack_button.modulate = Color.WHITE
 		have_gun = true
 		can_shoot = true
 		
@@ -80,20 +79,27 @@ func _on_hitbox_area_entered(area):
 			$HUD/Armor/Armor_value.text = str(shield)
 		
 	# 玩家撞牆(暫停開發)
-	if area.is_in_group("Touch_wall"):
-		velocity = -velocity * 10
+#	if area.is_in_group("Touch_wall"):
+#		velocity = -velocity * 10
 		
 
 func _on_shoot_button_button_down():
 	# 左鍵射擊
-	$HUD/Shoot_button.modulate = Color.BURLYWOOD
+	$HUD/Attack_button.modulate = Color.BURLYWOOD
 	is_shooting = true
 
 func _on_shoot_button_button_up():
-	$HUD/Shoot_button.modulate = Color.WHITE
+	$HUD/Attack_button.modulate = Color.WHITE
 	is_shooting = false
 
 
 func _on_stun_timer_timeout():
 	modulate = Color.WHITE
 	stun = false
+
+func _on_hud_use_move_vector(move_vector):
+	velocity = move_vector
+
+
+
+
