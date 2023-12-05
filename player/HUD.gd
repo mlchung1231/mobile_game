@@ -8,7 +8,7 @@ var joystick_active = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Joystick.set_position(Vector2(Setting.joystick_x,Setting.joystick_y))
+	$Joystick.set_position(Vector2(Setting.joystick_x - 14, Setting.joystick_y - 14))
 	$Attack_button.set_position(Vector2(Setting.attack_x,Setting.attack_y))
 	$Build_button.set_position(Vector2(Setting.build_x,Setting.build_y))
 	$Bag_button.set_position(Vector2(Setting.bag_x,Setting.bag_y))
@@ -19,8 +19,8 @@ func _input(event):
 			move_vector = calculate_move_vector(event.position)
 			joystick_active = true
 			var texture_center = $Joystick.position + Vector2(60,60)
-			var range = event.position.distance_to(texture_center)
-			if range > 60:
+			var joystick_range = event.position.distance_to(texture_center)
+			if joystick_range > 60:
 				var mark_position
 				mark_position = calculate_move_vector(event.position) * 60 + $Joystick.position + Vector2(60,60)
 				$Joystick_mark.position = mark_position
@@ -38,10 +38,10 @@ func _physics_process(delta):
 		emit_signal("use_move_vector", move_vector)
 	else:
 		emit_signal("use_move_vector", Vector2(0,0))
-		$Joystick_mark.position = Vector2(Setting.joystick_x + 60,Setting.joystick_y + 60)
+		$Joystick_mark.position = Vector2(Setting.joystick_x + 45,Setting.joystick_y + 45)
 
 func calculate_move_vector(event_position):
-	var texture_center = $Joystick.position + Vector2(60,60)
+	var texture_center = $Joystick.position + Vector2(45,45)
 	return (event_position - texture_center).normalized()
 	
 

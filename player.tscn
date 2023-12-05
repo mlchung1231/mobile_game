@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b3rsjg7lq8skw" path="res://art/Healthover.png" id="8_0w3s2"]
 [ext_resource type="Script" path="res://player/Healthbar.gd" id="8_jt4hq"]
 [ext_resource type="Texture2D" uid="uid://dcohx7cp5slwt" path="res://art/HealthProcess.png" id="9_ogxts"]
-[ext_resource type="FontFile" uid="uid://car1c3dm5xtvy" path="res://art/04B_30__.TTF" id="12_6kfrw"]
+[ext_resource type="FontFile" uid="uid://car1c3dm5xtvy" path="res://art/font.TTF" id="10_c761x"]
 [ext_resource type="Texture2D" uid="uid://hhcgblhyigm" path="res://art/joystick.png" id="12_bw0vv"]
 [ext_resource type="Texture2D" uid="uid://30epygubfv81" path="res://art/移動桿.png" id="13_fcbwv"]
 
@@ -22,17 +22,17 @@ height = 140.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_hlvnn"]
 line_spacing = 0.0
-font = ExtResource("12_6kfrw")
+font = ExtResource("10_c761x")
 font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_qgaa2"]
 line_spacing = 0.0
-font = ExtResource("12_6kfrw")
+font = ExtResource("10_c761x")
 font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_xt3ft"]
 line_spacing = 0.0
-font = ExtResource("12_6kfrw")
+font = ExtResource("10_c761x")
 font_size = 30
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t5gpq"]
