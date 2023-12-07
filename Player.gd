@@ -21,6 +21,7 @@ var have_clothes = false
 func _ready():
 	# 上傳此玩家至Global(通用資料庫)
 	Global.player[0] = self
+	can_shoot = true
 
 func _exit_tree():
 	Global.player[0] = null
@@ -46,8 +47,8 @@ func _process(delta):
 	if Input.is_action_pressed("put"):
 		Global.instance_node(wall, global_position, Global.node_creation_parent)
 	
-	if have_gun == false:
-		$HUD/Attack_button.modulate = Color.WEB_GRAY
+#	if have_gun == false:
+#		$HUD/Attack_button.modulate = Color.WEB_GRAY
 	
 
 func _on_reload_speed_timeout():
@@ -66,8 +67,8 @@ func _on_hitbox_area_entered(area):
 		
 	# 玩家撿取槍枝道具
 	if area.is_in_group("Gun_pick_up") and is_dead == false:
-		if have_gun == false:
-			$HUD/Attack_button.modulate = Color.WHITE
+#		if have_gun == false:
+#			$HUD/Attack_button.modulate = Color.WHITE
 		have_gun = true
 		can_shoot = true
 		
@@ -99,7 +100,6 @@ func _on_stun_timer_timeout():
 
 func _on_hud_use_move_vector(move_vector):
 	velocity = move_vector
-
 
 
 

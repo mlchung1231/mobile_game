@@ -16,9 +16,12 @@ func _process(delta):
 	
 	if look_once:
 		#look_at(get_global_mouse_position())
-		velocity = Global.player[0].velocity
-		if velocity == Vector2(0,0):
-			velocity = Global.player[0].temp_velocity
+		if Global.p0_enemy != null:
+			look_at(Global.p0_enemy.global_position) 
+		else:
+			velocity = Global.player[0].velocity
+			if velocity == Vector2(0,0):
+				velocity = Global.player[0].temp_velocity
 		look_once = false
 	global_position += velocity	.rotated(rotation) * speed * delta
 

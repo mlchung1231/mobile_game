@@ -8,9 +8,12 @@ var face = 0
 var turn = Vector2(1,0)
 
 var stun = false
-var hp = 3
+var hp = 30
+
+var can_be_shot = false
 
 var nearest_player
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,6 +44,15 @@ func _process(delta):
 	
 	global_position += velocity * speed * delta
 	
+	if can_be_shot:
+		if Global.p0_enemy == null:
+			Global.p0_enemy = self
+			Global.p0_enemy_dis = global_position.distance_to(Global.player[0].global_position)
+		elif global_position.distance_to(Global.player[0].global_position) < Global.p0_enemy_dis:
+			Global.p0_enemy = self
+			Global.p0_enemy_dis = global_position.distance_to(Global.player[0].global_position)
+			
+	$Hitbox/Healthbar.value = hp
 	if hp <= 0:
 		queue_free()
 
@@ -49,13 +61,17 @@ func _on_hitbox_area_entered(area):
 	if area.is_in_group("Enemy_damager") and stun == false:
 		modulate = Color.RED
 		velocity = -velocity * 6
-		hp -= 1
+		hp -= 10
 		stun = true
 		$Hitbox/Stun_timer.start()
 		area.get_parent().queue_free()
 		
-	if area.is_in_group("Touch_wall"):
-		velocity = -velocity * 3
+	if area.is_in_group("Shoot_range"):
+		can_be_shot = true
+		
+func _on_hitbox_area_exited(area):
+	if area.is_in_group("Shoot_range"):
+		can_be_shot = false
 
 func _on_stun_timer_timeout():
 	modulate = Color.WHITE
@@ -75,3 +91,4 @@ func _on_turn_timer_timeout():
 	face += 1
 	if face >= 4:
 		face = 0
+
